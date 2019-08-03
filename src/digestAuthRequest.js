@@ -73,7 +73,7 @@
                     // get authenticate header
                     var digestHeaders;
                     for (var i = 0; i < responseHeaders.length; i++) {
-                        if (responseHeaders[i].match(/www-authenticate/i) != null) {
+                        if (responseHeaders[i].match(/www-authenticate:/i) != null) {
                             digestHeaders = responseHeaders[i];
                         }
                     }
