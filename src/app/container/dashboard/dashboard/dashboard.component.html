@@ -15,17 +15,22 @@
                 </mat-card-title>
             </mat-card-header>
             <hr>
-            <ngx-charts-line-chart
-                    [curve]="naturalCurve"
-                    [results]="metrics.systallicPressure"
-                    xAxis="true"
-            ></ngx-charts-line-chart>
-            <div fxLayoutAlign="space-between">
-                <span class="color-gray">Проблема</span><span class="color-gray">~140/95 мм рт. ст.</span>
+            <div *ngIf="metrics.systallicPressure.msg">
+                {{metrics.systallicPressure.msg}}
             </div>
-            <mat-card-content fxLayoutAlign="end">
-                <button color="primary" mat-button>ПОДРОБНЕЙ</button>
-            </mat-card-content>
+            <div *ngIf="!metrics.systallicPressure.msg">
+                <ngx-charts-line-chart
+                        [curve]="naturalCurve"
+                        [results]="metrics.systallicPressure"
+                        xAxis="true"
+                ></ngx-charts-line-chart>
+                <div fxLayoutAlign="space-between">
+                    <span class="color-gray">Проблема</span><span class="color-gray">~140/95 мм рт. ст.</span>
+                </div>
+                <mat-card-content fxLayoutAlign="end">
+                    <button color="primary" mat-button>ПОДРОБНЕЙ</button>
+                </mat-card-content>
+            </div>
         </mat-card>
         <mat-card fxLayout="column">
             <mat-card-header>
@@ -35,17 +40,22 @@
                 </mat-card-title>
             </mat-card-header>
             <hr>
-            <ngx-charts-line-chart
-                    [curve]="naturalCurve"
-                    [results]="metrics.pulse"
-                    xAxis="true"
-            ></ngx-charts-line-chart>
-            <div fxLayoutAlign="space-between">
-                <span class="color-gray">Всё в норме</span><span class="color-gray">~120 уд/мин</span>
+            <div *ngIf="metrics.pulse.msg">
+                {{metrics.pulse.msg}}
             </div>
-            <mat-card-content fxLayoutAlign="end">
-                <button color="primary" mat-button>ПОДРОБНЕЙ</button>
-            </mat-card-content>
+            <div *ngIf="!metrics.pulse.msg">
+                <ngx-charts-line-chart
+                        [curve]="naturalCurve"
+                        [results]="metrics.pulse"
+                        xAxis="true"
+                ></ngx-charts-line-chart>
+                <div fxLayoutAlign="space-between">
+                    <span class="color-gray">Всё в норме</span><span class="color-gray">~120 уд/мин</span>
+                </div>
+                <mat-card-content fxLayoutAlign="end">
+                    <button color="primary" mat-button>ПОДРОБНЕЙ</button>
+                </mat-card-content>
+            </div>
         </mat-card>
         <div fxlayout="row">
             <h2 class="color-white">Дополнительно</h2>

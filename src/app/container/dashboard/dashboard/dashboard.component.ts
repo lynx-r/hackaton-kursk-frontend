@@ -3,7 +3,8 @@ import { AuthService } from '../../../service/auth.service';
 import { Router } from '@angular/router';
 import * as shape from 'd3-shape';
 import { ApiService } from '../../../service/api.service';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Component({
     selector: 'app-dashboard',
@@ -212,7 +213,15 @@ export class DashboardComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.metrics$ = this.apiService.getMetrics();
+        this.metrics$ = this.apiService.getMetrics()
+            .pipe(
+                catchError(err => {
+                    return of({
+                        systallicPressure: {msg: 'Не достаточно прав для просмотра давления'},
+                        pulse: {msg: 'Не достаточно прав для просмотра пульса'}
+                    });
+                })
+            );
     }
 
     onLogout() {

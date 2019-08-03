@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ApiService } from './api.service';
 import { StorageService } from './storage.service';
 import { ApiConstant } from '../config/api-constant';
+import { tap } from 'rxjs/operators';
 
 declare var digestAuthRequest: any;
 
@@ -31,38 +32,27 @@ export class AuthService {
     }
 
     login(user: User): Observable<any> {
-        const getRequest = new digestAuthRequest('GET', ApiConstant.AUTH_LOGIN, user.phone, `${user.password}`);
+        const getRequest = new digestAuthRequest('GET', ApiConstant.AUTH_LOGIN, user.phone, user.password);
         return new Observable<any>(subscriber => {
             getRequest.request(data => {
                     console.log('data', data);
                     this.token = data.token;
-                    subscriber.next(data);
+                subscriber.next(true);
                     subscriber.complete();
                 }, errorCode => {
-                    this.token = null;
                     console.log('error', errorCode);
-                    subscriber.error(errorCode);
+                this.token = null;
+                subscriber.next(false);
                     subscriber.complete();
                 }
             );
         });
-
-        // return this.apiService.authUser(credentials)
-        //     .pipe(
-        //         map(token => {
-        //             console.log(token);
-        //             this.token = token.token;
-        //             return true;
-        //         }),
-        //         catchError(err => {
-        //             console.log(err);
-        //             this.token = null;
-        //             return of(false);
-        //         })
-        //     );
     }
 
     logout() {
-        this.token = null;
+        return this.apiService.logout()
+            .pipe(
+                tap(() => this.token = null)
+            );
     }
 }

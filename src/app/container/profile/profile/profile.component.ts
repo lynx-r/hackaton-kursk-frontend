@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../service/auth.service';
 import { Router } from '@angular/router';
+import { tap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-profile',
@@ -33,7 +34,10 @@ export class ProfileComponent implements OnInit {
     }
 
     onLogout() {
-        this.authService.logout();
-        this.router.navigate(['/user/login']);
+        this.authService.logout()
+            .pipe(
+                tap(() => this.router.navigate(['/user/login']))
+            )
+            .subscribe();
     }
 }

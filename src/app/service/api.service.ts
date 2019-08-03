@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ApiConstant } from '../config/api-constant';
-import { User } from '../model/user.model';
-import { Observable } from 'rxjs';
-import { JwtToken } from '../model/jwt-token';
 
 @Injectable({
     providedIn: 'root'
@@ -16,16 +13,12 @@ export class ApiService {
     }
 
 
-    authUser(user: User): Observable<JwtToken> {
-        return this.httpPost(ApiConstant.AUTH_LOGIN, user);
-    }
-
-    authObserve() {
-        return this.http.get(ApiConstant.AUTH_LOGIN, {headers: {Authorization: 'Digest try'}, observe: 'response'});
-    }
-
     getMetrics() {
         return this.httpGet(ApiConstant.METRICS);
+    }
+
+    logout() {
+        return this.httpPost(ApiConstant.LOGOUT, {});
     }
 
     // private http
