@@ -1,0 +1,31 @@
+.dashboard {
+  background-image: url("/assets/images/bg_sun.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow-y: scroll;
+}
+
+.addons-slider {
+  overflow-x: scroll;
+}
+
+.pie-card {
+  position: relative;
+}
+
+.pie-label-gray {
+  color: gray;
+  font-size: 10px;
+}
+
+.pie-center-icon {
+  top: 62px;
+  left: 72px;
+  width: 36px;
+  position: absolute;
+}
+
+.pie-center-icon-text {
+  text-align: center;
+}

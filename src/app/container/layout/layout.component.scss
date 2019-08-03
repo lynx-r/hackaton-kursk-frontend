@@ -1,0 +1,11 @@
+.layout {
+  min-height: 100vh;
+}
+
+.toolbar {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  height: 72px;
+  z-index: 1;
+}

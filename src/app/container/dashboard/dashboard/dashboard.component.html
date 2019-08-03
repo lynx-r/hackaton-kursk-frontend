@@ -1,0 +1,99 @@
+<div *ngIf="metrics$ | async as metrics" class="dashboard">
+    <div class="container">
+        <h2 class="color-white">Добрый вечер, Пантелеймон!</h2>
+        <div>
+            <button color="primary" mat-icon-button mat-mini-fab>
+                <mat-icon>keyboard_arrow_left</mat-icon>
+            </button>
+            <span class="color-white">{{today | date: 'dd.MM.yyyy'}}</span>
+        </div>
+        <mat-card fxLayout="column">
+            <mat-card-header>
+                <mat-card-title>
+                    <mat-icon>dock</mat-icon>
+                    Показатель даваления
+                </mat-card-title>
+            </mat-card-header>
+            <hr>
+            <ngx-charts-line-chart
+                    [curve]="naturalCurve"
+                    [results]="metrics.systallicPressure"
+                    xAxis="true"
+            ></ngx-charts-line-chart>
+            <div fxLayoutAlign="space-between">
+                <span class="color-gray">Проблема</span><span class="color-gray">~140/95 мм рт. ст.</span>
+            </div>
+            <mat-card-content fxLayoutAlign="end">
+                <button color="primary" mat-button>ПОДРОБНЕЙ</button>
+            </mat-card-content>
+        </mat-card>
+        <mat-card fxLayout="column">
+            <mat-card-header>
+                <mat-card-title>
+                    <mat-icon>favorite</mat-icon>
+                    Показатель пульса
+                </mat-card-title>
+            </mat-card-header>
+            <hr>
+            <ngx-charts-line-chart
+                    [curve]="naturalCurve"
+                    [results]="metrics.pulse"
+                    xAxis="true"
+            ></ngx-charts-line-chart>
+            <div fxLayoutAlign="space-between">
+                <span class="color-gray">Всё в норме</span><span class="color-gray">~120 уд/мин</span>
+            </div>
+            <mat-card-content fxLayoutAlign="end">
+                <button color="primary" mat-button>ПОДРОБНЕЙ</button>
+            </mat-card-content>
+        </mat-card>
+        <div fxlayout="row">
+            <h2 class="color-white">Дополнительно</h2>
+            <span fxFlex></span>
+            <button mat-icon-button>
+                <mat-icon class="color-white">add_circle</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon class="color-white">settings</mat-icon>
+            </button>
+        </div>
+        <div class="addons-slider" fxLayout="row">
+            <mat-card fxLayout="column">
+        <span class="pie-center-icon" fxLayout="column">
+          <span><img alt="" class="img-fluid" src="/assets/icons/footsteps-silhouette-variant.svg"></span>
+          <span>Шаги</span>
+        </span>
+                <ngx-charts-pie-chart
+                        [results]="dataStep"
+                        [view]="pieView"
+                        doughnut="true"
+                ></ngx-charts-pie-chart>
+                <div class="pie-below-label" fxFlex fxLayout="row" fxLayoutAlign="center center">
+                    <span>1 750</span><span class="pie-label-gray">/3 000 м</span>
+                </div>
+                <!--<img matCardImage src="Card wide image source">-->
+                <mat-card-content fxLayoutAlign="center">
+                    <button color="primary" mat-button>ПОДРОБНЕЙ</button>
+                </mat-card-content>
+            </mat-card>
+            <mat-card fxLayout="column">
+        <span class="pie-center-icon" fxLayout="column">
+          <span><img alt="" class="img-fluid" src="/assets/icons/moon.svg"></span>
+          <span class="pie-center-icon-text">Сон</span>
+        </span>
+                <ngx-charts-pie-chart
+                        [results]="dataDream"
+                        [view]="pieView"
+                        doughnut="true"
+                ></ngx-charts-pie-chart>
+                <div class="pie-below-label" fxFlex fxLayout="row" fxLayoutAlign="center center">
+                    <span>7:30</span><span class="pie-label-gray">/8:00 ч</span>
+                </div>
+                <!--<img matCardImage src="Card wide image source">-->
+                <mat-card-content fxLayoutAlign="center">
+                    <button color="primary" mat-button>ПОДРОБНЕЙ</button>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

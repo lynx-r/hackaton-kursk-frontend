@@ -1,0 +1,13 @@
+<div class="device" fxLayout="column">
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <div>{{device.name}}</div>
+        <div fxLayout="column">
+            <mat-checkbox [checked]="device.coupled"
+                          color="primary">
+                {{device.coupled ? 'Связано' : 'Не связано'}}
+            </mat-checkbox>
+            <button *ngIf="device.coupled" color="warn" mat-button="">ОТВЯЗАТЬ</button>
+            <button *ngIf="!device.coupled" color="primary" mat-button="">СВЯЗАТЬ</button>
+        </div>
+    </div>
+</div>

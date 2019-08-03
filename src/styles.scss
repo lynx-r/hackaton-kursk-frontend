@@ -1,0 +1,31 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+  margin: 0;
+}
+
+.mat-stroked-button, .mat-raised-button {
+  border-radius: 28px !important;
+  /*background-color: red;*/
+}
+
+.img-fluid {
+  width: 100%;
+}
+
+.color-gray {
+  color: gray;
+}
+
+.color-white {
+  color: white;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.background-color {
+  background-color: #02A676;
+}

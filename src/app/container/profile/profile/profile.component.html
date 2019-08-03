@@ -1,0 +1,169 @@
+<div class="profile background-color">
+    <div class="container">
+        <mat-card class="card" fxLayout="column">
+            <mat-card-header>
+                <mat-card-title>
+                    <mat-icon>person</mat-icon>
+                    Личные данные
+                </mat-card-title>
+            </mat-card-header>
+            <hr>
+            <div fxLayout="column">
+                <mat-form-field appearance="outline" fxFlex>
+                    <mat-label>Ваше имя</mat-label>
+                    <input #password="ngModel"
+                           autocomplete="current-password"
+                           matInput
+                           name="password"
+                           ngModel
+                           placeholder="Ваше имя"
+                           required
+                           type="text"
+                    >
+                    <!--<mat-icon matSuffix>remove_red_eye</mat-icon>-->
+                    <mat-error *ngIf="!password.valid && password.touched" class="help-block">Пожалуйста введите ваш
+                        пароль!
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex>
+                    <mat-label>Ваше фамилия</mat-label>
+                    <input #password="ngModel"
+                           autocomplete="current-password"
+                           matInput
+                           name="password"
+                           ngModel
+                           placeholder="Ваше фамилия"
+                           required
+                           type="text"
+                    >
+                    <!--<mat-icon matSuffix>remove_red_eye</mat-icon>-->
+                    <mat-error *ngIf="!password.valid && password.touched" class="help-block">Пожалуйста введите ваш
+                        пароль!
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Номер телефона</mat-label>
+                    <input #phone="ngModel"
+                           autocomplete="username"
+                           mask="(000) 000 00 00"
+                           matInput
+                           name="phone"
+                           ngModel
+                           placeholder="Номер телефона"
+                           prefix="+7 "
+                           required
+                           type="text"
+                    >
+                    <mat-error *ngIf="!phone.valid && phone.touched" class="help-block">Пожалуйста введите ваш номер!
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Дата рождения</mat-label>
+                    <input [matDatepicker]="dp" matInput placeholder="Дата рождения">
+                    <mat-datepicker-toggle [for]="dp" matSuffix></mat-datepicker-toggle>
+                    <mat-datepicker #dp></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Пол</mat-label>
+                    <mat-select value="male">
+                        <mat-option value="male">
+                            Мужской
+                        </mat-option>
+                        <mat-option value="female">
+                            Женский
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex>
+                    <mat-label>Рост</mat-label>
+                    <input #height="ngModel"
+                           matInput
+                           name="height"
+                           ngModel
+                           placeholder="Рост"
+                           required
+                           type="number"
+                    >
+                    <!--<mat-icon matSuffix>remove_red_eye</mat-icon>-->
+                    <!--<mat-error *ngIf="!password.valid && password.touched" class="help-block">Пожалуйста введите ваш пароль!-->
+                    <!--</mat-error>-->
+                </mat-form-field>
+                <mat-form-field appearance="outline" fxFlex>
+                    <mat-label>Вес</mat-label>
+                    <input #height="ngModel"
+                           matInput
+                           name="height"
+                           ngModel
+                           placeholder="Вес"
+                           required
+                           type="number"
+                    >
+                    <!--<mat-icon matSuffix>remove_red_eye</mat-icon>-->
+                    <!--<mat-error *ngIf="!password.valid && password.touched" class="help-block">Пожалуйста введите ваш пароль!-->
+                    <!--</mat-error>-->
+                </mat-form-field>
+            </div>
+            <mat-card-content>
+                <button color="primary" fxFlex="" mat-stroked-button>Сохранить изменения</button>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="card" fxLayout="column">
+            <mat-card-header>
+                <mat-card-title>
+                    <mat-icon>person</mat-icon>
+                    Заболевания привычки
+                </mat-card-title>
+            </mat-card-header>
+            <hr>
+            <div fxLayout="column">
+                <mat-chip-list>
+                    <mat-chip color="primary">Гипертония
+                        <mat-icon matChipRemove>cancel</mat-icon>
+                    </mat-chip>
+                    <mat-chip color="accent">Курю
+                        <mat-icon matChipRemove>cancel</mat-icon>
+                    </mat-chip>
+                    <mat-chip color="accent">Выпиваю
+                        <mat-icon matChipRemove>cancel</mat-icon>
+                    </mat-chip>
+                </mat-chip-list>
+            </div>
+            <mat-card-content fxLayout="column" fxLayoutAlign="end end">
+                <button color="primary" mat-button>ДОБАВИТЬ ЗАБОЛЕВАНИЕ</button>
+                <button color="primary" mat-button>ДОБАВИТЬ ПРИВЫЧКУ</button>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="card" fxLayout="column">
+            <mat-card-header>
+                <mat-card-title>
+                    <mat-icon>person</mat-icon>
+                    Сопряженные устройства
+                </mat-card-title>
+            </mat-card-header>
+            <hr>
+            <div fxLayout="column">
+                <app-couple-device *ngFor="let device of devices" [device]="device"></app-couple-device>
+            </div>
+            <mat-card-content>
+                <button color="primary" fxFlex="" mat-stroked-button>СБРОСИТЬ ПОКАЗАТЕЛИ</button>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="card" fxLayout="column">
+            <mat-card-header>
+                <mat-card-title>
+                    <mat-icon>person</mat-icon>
+                    Настройки аккаунта
+                </mat-card-title>
+            </mat-card-header>
+            <hr>
+            <div fxLayout="row" fxLayoutAlign="space-between">
+                <div>Push-уведомления</div>
+                <mat-slide-toggle checked="true">
+                </mat-slide-toggle>
+            </div>
+            <mat-card-content>
+                <button (click)="onLogout()" color="warn" fxFlex="" mat-raised-button>ВЫЙТИ ИЗ АККАУНТА</button>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

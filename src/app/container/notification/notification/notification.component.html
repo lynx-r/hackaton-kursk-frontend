@@ -1,0 +1,20 @@
+<mat-tab-group mat-stretch-tabs>
+    <mat-tab label="Сегодня">
+        <div class="notification-tab background-color">
+            <div class="container notifications">
+                <div *ngFor="let n of notifications">
+                    <ng-container *ngIf="n.type === 'date'">
+                        <app-notification-date [date]="n.date"></app-notification-date>
+                    </ng-container>
+                    <ng-container *ngIf="n.type === 'notification'">
+                        <app-notification-item [notification]="n"></app-notification-item>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </mat-tab>
+    <mat-tab disabled label="Устройства">
+        <div class="notification-tab background-color">
+        </div>
+    </mat-tab>
+</mat-tab-group>
