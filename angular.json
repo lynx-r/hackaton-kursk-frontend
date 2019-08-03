@@ -34,7 +34,7 @@
             ],
             "scripts": [
               "node_modules/crypto-js/crypto-js.js",
-              "node_modules/digest-auth-request/digestAuthRequest.js"
+              "src/digestAuthRequest.js"
             ],
             "es5BrowserSupport": true
           },

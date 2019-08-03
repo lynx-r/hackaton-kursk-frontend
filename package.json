@@ -33,6 +33,7 @@
     "d3": "^5.9.7",
     "digest-auth-request": "^0.7.0",
     "google-libphonenumber": "^3.2.3",
+    "md5": "^2.2.1",
     "ngx-cookie": "=4.0.2",
     "ngx-localstorage": "^2.3.0",
     "ngx-mask": "^8.0.2",
