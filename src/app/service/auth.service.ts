@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { User } from '../model/user.model';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ApiService } from './api.service';
-import { catchError, map } from 'rxjs/operators';
 import { StorageService } from './storage.service';
+import { ApiConstant } from '../config/api-constant';
+
+declare var digestAuthRequest: any;
 
 @Injectable({
     providedIn: 'root'
@@ -28,20 +30,36 @@ export class AuthService {
         this.storageService.saveToken(token);
     }
 
-    login(credentials: User): Observable<boolean> {
-        return this.apiService.authUser(credentials)
-            .pipe(
-                map(token => {
-                    console.log(token);
-                    this.token = token.token;
-                    return true;
-                }),
-                catchError(err => {
-                    console.log(err);
+    login(user: User): Observable<any> {
+        const getRequest = new digestAuthRequest('GET', ApiConstant.AUTH_LOGIN, user.phone, `${user.password}`);
+        return new Observable<any>(subscriber => {
+            getRequest.request(data => {
+                    console.log('data', data);
+                    this.token = data.token;
+                    subscriber.next(data);
+                    subscriber.complete();
+                }, errorCode => {
                     this.token = null;
-                    return of(false);
-                })
+                    console.log('error', errorCode);
+                    subscriber.error(errorCode);
+                    subscriber.complete();
+                }
             );
+        });
+
+        // return this.apiService.authUser(credentials)
+        //     .pipe(
+        //         map(token => {
+        //             console.log(token);
+        //             this.token = token.token;
+        //             return true;
+        //         }),
+        //         catchError(err => {
+        //             console.log(err);
+        //             this.token = null;
+        //             return of(false);
+        //         })
+        //     );
     }
 
     logout() {

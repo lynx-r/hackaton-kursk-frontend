@@ -24,7 +24,8 @@ export class LoginComponent implements OnInit {
     ngOnInit() {
     }
 
-    onLogin() {
+    onLogin(event) {
+        event.preventDefault();
         this.authService.login(this.loginForm.value)
             .pipe(
                 tap((logged) => {

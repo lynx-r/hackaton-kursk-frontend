@@ -32,7 +32,10 @@
               "src/styles.scss",
               "src/themes/unicorn-app-theme.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/crypto-js/crypto-js.js",
+              "node_modules/digest-auth-request/digestAuthRequest.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {

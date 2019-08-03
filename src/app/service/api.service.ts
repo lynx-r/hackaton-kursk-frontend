@@ -20,6 +20,10 @@ export class ApiService {
         return this.httpPost(ApiConstant.AUTH_LOGIN, user);
     }
 
+    authObserve() {
+        return this.http.get(ApiConstant.AUTH_LOGIN, {headers: {Authorization: 'Digest try'}, observe: 'response'});
+    }
+
     getMetrics() {
         return this.httpGet(ApiConstant.METRICS);
     }
