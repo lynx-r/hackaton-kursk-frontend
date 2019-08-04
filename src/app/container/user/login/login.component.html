@@ -63,7 +63,13 @@
         </mat-error>
     </mat-form-field>
     <mat-error *ngIf="error && loginForm.touched">
-        Не верный логин или пароль!
+        <div>Не верный логин или пароль!</div>
+        <div>
+            Попробуйте 9999999999/password для входа как владелец (просмотр метрик)
+        </div>
+        <div>
+            Попробуйте 9999999991/password для входа как сторонний пользователь (без просмотра метрик)
+        </div>
     </mat-error>
     <button (click)="onLogin($event)" [disabled]="!loginForm.valid" mat-stroked-button="">ВОЙТИ В АККАУНТ</button>
     <button mat-button type="button">Забыли пароль?</button>
