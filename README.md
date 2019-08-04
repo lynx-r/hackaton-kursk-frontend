@@ -33,6 +33,6 @@ https://hackaton-kursk.shashki.online/user/login
 
 # Backend
 
-* https://github.com/lynx-r/hackaton-kursk-backend Api на Spring 5 и Groovy
+* https://github.com/lynx-r/hackaton-kursk-backend Api на Spring Boot и Groovy
 * https://github.com/lynx-r/hackaton-kursk-nodejs Socket.io свервер для WebRTC
 * https://github.com/lynx-r/hackaton-kursk-server-config Некоторый важные настройки сервера (без Docker)
