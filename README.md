@@ -1,27 +1,36 @@
-# DoctorPwa
+# Региональный этап концурса Цифровой прорыв
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.2.
+В приложении доступна только авторизации по двум типам учетных записей:
 
-## Development server
+* Тел.: 9999999999 Пароль: password (пользователь который может видеть пример метрик)
+* Тел.: 9999999991 Пароль: password (пользователь который не может видеть пример метрик)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![Alt text](https://monosnap.com/image/hQVchYROk4tRocC69TkcIZ5HHdhiFU)
 
-## Code scaffolding
+В приложении есть 4 страницы (кроме логина):
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Метрики
 
-## Build
+![Метрики](https://monosnap.com/image/wjZydfaho0ti7E1vDA1iGG9Vv0wlX1)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Уведомления
 
-## Running unit tests
+![Уведомления](https://monosnap.com/image/5IpHlYAprFch8OTmQ3zjC0FNJMIPU4)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Профиль
 
-## Running end-to-end tests
+![Профиль](https://monosnap.com/image/fx7qqpSbRs5hKZnWB5wSWVo9R7MErC)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Видео звонок
 
-## Further help
+В профиле есть переход на видео вызов с врачом. На данный момент на этой странице не возможности связаться 
+с кем-либо специально. Для демонстрации, просто откройте эту страницу на втором устройстве и нажмите на
+кнопку вызова.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![Видео звонок](https://monosnap.com/image/nha6cckvGIiY5i9HXSddmihmw2HJdi)
+
+# Backend
+
+* https://github.com/lynx-r/hackaton-kursk-backend Api на Spring 5 и Groovy
+* https://github.com/lynx-r/hackaton-kursk-nodejs Socket.io свервер для WebRTC
+* https://github.com/lynx-r/hackaton-kursk-server-config Некоторый важные настройки сервера (без Docker)
