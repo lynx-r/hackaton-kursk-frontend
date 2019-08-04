@@ -38,6 +38,7 @@
     "ngx-localstorage": "^2.3.0",
     "ngx-mask": "^8.0.2",
     "ngx-phone-validators": "^1.1.0",
+    "ngx-toastr": "^10.0.4",
     "rxjs": "~6.4.0",
     "socket.io-client": "^2.2.0",
     "tslib": "^1.9.0",

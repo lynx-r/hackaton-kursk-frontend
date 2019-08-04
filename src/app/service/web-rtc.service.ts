@@ -1,5 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { SocketService } from './socket.service';
+import { NotifyService } from './notify.service';
 
 declare var window: any;
 declare var navigator: any;
@@ -17,9 +18,11 @@ export class WebRtcService {
     private readonly IceCandidate: any;
     private readonly SessionDescription: any;
     private pc: any;
+    private candidateId: string;
 
     constructor(
-        private socketService: SocketService
+        private socketService: SocketService,
+        private notifyService: NotifyService
     ) {
         this.Navigator = navigator;
         this.PeerConnection = window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
@@ -63,7 +66,9 @@ export class WebRtcService {
     }
 
     private gotLocalDescription(description) {
-        this.pc.setLocalDescription(description);
+        this.pc.setLocalDescription(description)
+            .then((m) => console.log('localdesc', m))
+            .catch(err => console.log('localdesc err', err));
         this.socketService.sendMessage(description);
     }
 
@@ -89,16 +94,37 @@ export class WebRtcService {
         this.pc.addStream(stream);
         this.pc.onicecandidate = this.gotIceCandidate.bind(this);
         this.pc.onaddstream = this.gotRemoteStream.bind(this);
+        // let isNegotiating = false;  // Workaround for Chrome: skip nested negotiations
+        // this.pc.onnegotiationneeded = e => {
+        //     if (isNegotiating) {
+        //         console.log("SKIP nested negotiations");
+        //         return;
+        //     }
+        //     isNegotiating = true;
+        //     console.log('onnegotiationneeded', e)
+        // };
+        // this.pc.onsignalingstatechange = e => {
+        //     console.log('onsignalingstatechange', e)
+        // };
     }
 
     private onMessage() {
         this.socketService.on('message', (message) => {
                 if (message.type === 'offer') {
+                    console.log('o', message);
                     this.pc.setRemoteDescription(new this.SessionDescription(message));
                     this.createAnswer();
                 } else if (message.type === 'answer') {
-                    this.pc.setRemoteDescription(new this.SessionDescription(message));
-                } else if (message.type === 'candidate') {
+                    console.log('a', message);
+                    this.pc.setRemoteDescription(new this.SessionDescription(message))
+                        .then(m => console.log('answer', m))
+                        .catch(err => {
+                            console.log('answer err', err);
+                            this.notifyService.error('Ошибка соединения. Больше двух кандидатов.');
+                        });
+                } else if (message.type === 'candidate' && this.candidateId !== message.id) {
+                    console.log('c', message);
+                    this.candidateId = message.id;
                     const candidate = new this.IceCandidate({sdpMLineIndex: message.label, candidate: message.candidate});
                     this.pc.addIceCandidate(candidate);
                 }

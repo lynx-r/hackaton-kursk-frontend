@@ -9,6 +9,7 @@ import { environment } from '../environments/environment';
 import { NgxLocalStorageModule } from 'ngx-localstorage';
 import { CookieModule } from 'ngx-cookie';
 import { ApiInterceptor } from './service/api-interceptor';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
     declarations: [
@@ -23,6 +24,7 @@ import { ApiInterceptor } from './service/api-interceptor';
 
         NgxLocalStorageModule.forRoot(),
         CookieModule.forRoot(),
+        ToastrModule.forRoot()
     ],
     providers: [
         {

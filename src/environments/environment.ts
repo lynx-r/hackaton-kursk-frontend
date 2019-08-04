@@ -5,7 +5,8 @@
 export const environment = {
     production: false,
     apiUrl: 'http://localhost:8080',
-    webrtcUrl: 'http://localhost:1234'
+    webrtcUrl: 'https://socket.shashki.online'
+    // webrtcUrl: 'http://localhost:1234'
 };
 
 /*

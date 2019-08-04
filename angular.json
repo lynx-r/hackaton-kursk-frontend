@@ -30,7 +30,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/themes/unicorn-app-theme.scss"
+              "src/themes/unicorn-app-theme.scss",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
               "node_modules/crypto-js/crypto-js.js",
