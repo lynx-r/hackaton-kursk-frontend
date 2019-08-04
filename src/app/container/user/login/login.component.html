@@ -62,6 +62,9 @@
             <div *ngIf="password.errors.maxlength">Максимальная длина пароля 28 символов!</div>
         </mat-error>
     </mat-form-field>
+    <mat-hint>
+        Если не знаете пароляя, введите любой 6 значный и нажмите Enter. В ошибках появятся допустимые уч. данные.
+    </mat-hint>
     <mat-error *ngIf="error && loginForm.touched">
         <div>Не верный логин или пароль!</div>
         <div>

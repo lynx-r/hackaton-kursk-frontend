@@ -25,23 +25,21 @@ export class LoginComponent implements OnInit {
     }
 
     onLogin(event) {
-        event.preventDefault();
-        this.authService.login(this.loginForm.value)
-            .pipe(
-                tap((logged) => {
-                    if (logged) {
-                        console.log(logged);
-                        this.error = false;
-                        this.router.navigate(['/']);
-                    } else {
-                        this.error = true;
-                    }
-                })
-            )
-            .subscribe();
-    }
-
-    print(password: any) {
-        console.log(password);
+        if (this.loginForm.valid) {
+            event.preventDefault();
+            this.authService.login(this.loginForm.value)
+                .pipe(
+                    tap((logged) => {
+                        if (logged) {
+                            console.log(logged);
+                            this.error = false;
+                            this.router.navigate(['/']);
+                        } else {
+                            this.error = true;
+                        }
+                    })
+                )
+                .subscribe();
+        }
     }
 }
