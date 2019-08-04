@@ -1,23 +1,25 @@
 <div class="layout">
     <router-outlet></router-outlet>
 </div>
-<mat-toolbar class="toolbar">
-    <mat-toolbar-row fxLayoutAlign="space-between">
-        <button color="primary" mat-button routerLink="/">
-            <mat-icon>dashboard</mat-icon>
-            <br>
-            Обзор
-        </button>
-        <button color="primary" mat-button matBadge="8"
-                matBadgeColor="accent" matBadgePosition="after" routerLink="/notifications">
-            <mat-icon>notifications</mat-icon>
-            <br>
-            Уведомления
-        </button>
-        <button color="primary" mat-button routerLink="/profile">
-            <mat-icon>person</mat-icon>
-            <br>
-            Профиль
-        </button>
-    </mat-toolbar-row>
-</mat-toolbar>
+<div class="toolbar">
+    <mat-toolbar>
+        <mat-toolbar-row fxLayoutAlign="space-between">
+            <button color="primary" mat-button routerLink="/">
+                <mat-icon>dashboard</mat-icon>
+                <br>
+                Обзор
+            </button>
+            <button color="primary" mat-button matBadge="8"
+                    matBadgeColor="accent" matBadgePosition="after" routerLink="/notifications">
+                <mat-icon>notifications</mat-icon>
+                <br>
+                Уведомления
+            </button>
+            <button color="primary" mat-button routerLink="/profile">
+                <mat-icon>person</mat-icon>
+                <br>
+                Профиль
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</div>

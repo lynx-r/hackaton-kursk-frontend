@@ -62,6 +62,7 @@
             if (self.post) {
                 self.firstRequest.setRequestHeader('Content-type', 'application/json');
             }
+            self.firstRequest.setRequestHeader('Authorization', 'Digest unauthed');
 
             self.firstRequest.onreadystatechange = function () {
 
