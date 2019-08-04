@@ -18,7 +18,7 @@
             <div *ngIf="metrics.systallicPressure.msg">
                 {{metrics.systallicPressure.msg}}
             </div>
-            <div *ngIf="!metrics.systallicPressure.msg">
+            <div *ngIf="!metrics.systallicPressure.msg" fxLayout="column">
                 <ngx-charts-line-chart
                         [curve]="naturalCurve"
                         [results]="metrics.systallicPressure"
@@ -43,7 +43,7 @@
             <div *ngIf="metrics.pulse.msg">
                 {{metrics.pulse.msg}}
             </div>
-            <div *ngIf="!metrics.pulse.msg">
+            <div *ngIf="!metrics.pulse.msg" fxLayout="column">
                 <ngx-charts-line-chart
                         [curve]="naturalCurve"
                         [results]="metrics.pulse"
