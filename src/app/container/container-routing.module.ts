@@ -24,6 +24,10 @@ const routes: Routes = [
                 path: 'profile',
                 loadChildren: './profile/profile.module#ProfileModule'
             },
+            {
+                path: 'doctor',
+                loadChildren: './doctor/doctor.module#DoctorModule'
+            }
         ],
         canActivate: [AuthGuard]
     }
