@@ -8,4 +8,5 @@ export class ApiConstant {
     static METRICS = ApiConstant.WEB_PREFIX + '/metrics';
     static LOGOUT = ApiConstant.WEB_PREFIX + '/logout';
 
+    static WEBRTC_URL = environment.webrtcUrl;
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as io from 'socket.io-client';
-import { SocketConstant } from '../config/socket-constant';
+import { ApiConstant } from '../config/api-constant';
 
 @Injectable({
     providedIn: 'root'
@@ -10,11 +10,11 @@ export class SocketService {
     socket: any;
 
     constructor() {
-        this.socket = io('http://localhost:1234');
+        this.socket = io(ApiConstant.WEBRTC_URL);
         this.socket.on('connect', () => this.connected());
         this.socket.on('disconnect', () => this.disconnected());
         this.socket.on('error', (error: string) => {
-            console.log(`ERROR: "${error}" (${SocketConstant.HOST})`);
+            console.log(`ERROR: "${error}" (${ApiConstant.WEBRTC_URL})`);
         });
     }
 
