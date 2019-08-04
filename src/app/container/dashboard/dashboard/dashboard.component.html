@@ -1,10 +1,11 @@
 <div *ngIf="metrics$ | async as metrics" class="dashboard">
-    <div class="container">
+    <div class="container" fxLayout="column" fxLayoutGap="20px">
         <h2 class="color-white">Добрый вечер, Пантелеймон!</h2>
         <div>
             <button color="primary" mat-icon-button mat-mini-fab>
                 <mat-icon>keyboard_arrow_left</mat-icon>
             </button>
+            &nbsp;
             <span class="color-white">{{today | date: 'dd.MM.yyyy'}}</span>
         </div>
         <mat-card fxLayout="column">
@@ -67,7 +68,7 @@
                 <mat-icon class="color-white">settings</mat-icon>
             </button>
         </div>
-        <div class="addons-slider" fxLayout="row">
+        <div class="addons-slider" fxLayout="row" fxLayoutGap="12px">
             <mat-card fxLayout="column">
         <span class="pie-center-icon" fxLayout="column">
           <span><img alt="" class="img-fluid" src="/assets/icons/footsteps-silhouette-variant.svg"></span>

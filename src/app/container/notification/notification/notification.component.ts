@@ -39,6 +39,37 @@ export class NotificationComponent implements OnInit {
             title: 'Лягте пораньше',
             description: 'Нормальный сон – 8 часов',
             icon: '/assets/icons/moon.svg'
+        }, {
+            type: 'date',
+            date: new Date()
+        },
+        {
+            type: 'notification',
+            title: 'Пора на прогулку!',
+            description: 'Нужно пройти ещё 500 шагов',
+            icon: '/assets/icons/footsteps-silhouette-variant.svg'
+        },
+        {
+            type: 'notification',
+            title: 'Лягте пораньше',
+            description: 'Нормальный сон – 8 часов',
+            icon: '/assets/icons/moon.svg'
+        },
+        {
+            type: 'date',
+            date: new Date()
+        },
+        {
+            type: 'notification',
+            title: 'Пора на прогулку!',
+            description: 'Нужно пройти ещё 1 500 шагов',
+            icon: '/assets/icons/footsteps-silhouette-variant.svg'
+        },
+        {
+            type: 'notification',
+            title: 'Лягте пораньше',
+            description: 'Нормальный сон – 8 часов',
+            icon: '/assets/icons/moon.svg'
         },
     ];
 

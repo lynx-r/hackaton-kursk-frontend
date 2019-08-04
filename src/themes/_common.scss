@@ -1,0 +1,11 @@
+@import '~@angular/material/theming';
+
+$candy-app-primary: mat-palette($mat-green, 700);
+$candy-app-accent: mat-palette($mat-green, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$candy-app-warn: mat-palette($mat-red);
+
+$app_menu_height: 72px;
+
+$app_min_height: calc(100vh - #{$app_menu_height});

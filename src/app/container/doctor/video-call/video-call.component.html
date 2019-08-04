@@ -1,9 +1,15 @@
 <div class="video-panel background-color" fxLayout="column" fxLayoutGap="12px">
-    <video #localVideo autoplay class="local-video" muted></video>
-    <video #remoteVideo autoplay class="remote-video"></video>
-    <div fxFlex fxLayout="row" fxLayoutAlign="center center">
-        <button (click)="createOffer()" color="warn" mat-fab>
-            <mat-icon>call</mat-icon>
-        </button>
+    <div fxFlex="nogrow">
+        <video #localVideo autoplay class="local-video" muted></video>
+        <div class="remote-video-wrapper">
+            <video #remoteVideo autoplay class="remote-video"></video>
+        </div>
+    </div>
+    <div fxFlex="shrink">
+        <div fxLayout="row" fxLayoutAlign="center center">
+            <button (click)="createOffer()" color="warn" mat-fab>
+                <mat-icon>call</mat-icon>
+            </button>
+        </div>
     </div>
 </div>

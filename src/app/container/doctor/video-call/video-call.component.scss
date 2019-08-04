@@ -1,15 +1,24 @@
+@import '../../../../themes/common';
+
 .video-panel {
-  height: 100vh;
+  //height: 100vh;
+  min-height: $app_min_height;
+  overflow-y: hidden;
+}
+
+.remote-video-wrapper {
+  width: 100vw;
+  height: 70vh;
 }
 
 .remote-video {
-  width: 100vw;
+  width: 100%;
 }
 
 .local-video {
   width: 120px;
   position: absolute;
   right: 0;
-  border: 4px solid gray;
+  border: 4px solid #{mat-color($candy-app-accent)};
   border-radius: 4px;
 }

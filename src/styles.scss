@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  height: 100%;
+  //height: calc(100% - 72px); // 72px высота меню
   width: 100%;
   position: absolute;
 }

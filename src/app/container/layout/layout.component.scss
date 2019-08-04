@@ -1,4 +1,7 @@
+@import '../../../themes/common';
+
 .layout {
+  min-height: $app_min_height;
 }
 
 .toolbar {
