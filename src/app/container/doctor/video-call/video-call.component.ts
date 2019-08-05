@@ -1,6 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { WebRtcService } from '../../../service/web-rtc.service';
-import { tap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-video-call',
@@ -21,9 +20,6 @@ export class VideoCallComponent implements OnInit {
 
     ngOnInit() {
         this.webRtcService.localStreamCreated$
-            .pipe(
-                tap((s) => console.log(1, s))
-            )
             .subscribe(stream => {
                 this.haveLocalPermissions = true;
                 (this.localVideoRef.nativeElement as HTMLVideoElement).srcObject = stream;

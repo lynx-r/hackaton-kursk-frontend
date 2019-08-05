@@ -23,7 +23,7 @@ export class SocketService {
     }
 
     sendMessage(message) {
-        this.socket.emit('message', message, (data) => console.log('resp', data));
+        this.socket.emit('message', message);
     }
 
     on(eventName, callback: (data: any) => void) {
