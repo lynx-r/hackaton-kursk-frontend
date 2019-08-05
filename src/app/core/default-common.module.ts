@@ -8,6 +8,7 @@ import {
     MatChipsModule,
     MatDatepickerModule,
     MatFormFieldModule,
+    MatGridListModule,
     MatIconModule,
     MatInputModule,
     MatNativeDateModule,
@@ -40,7 +41,8 @@ import { PhoneValidatorsModule } from 'ngx-phone-validators';
         MatSelectModule,
         MatChipsModule,
         MatCheckboxModule,
-        MatSlideToggleModule
+        MatSlideToggleModule,
+        MatGridListModule
     ]
 })
 export class DefaultCommonModule {
