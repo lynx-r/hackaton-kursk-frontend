@@ -13,8 +13,13 @@
 
         if (typeof CryptoJS === 'undefined' && typeof require === 'function') {
             var CryptoJS = require('crypto-js');
-        } else if (window.CryptoJS !== 'undefined') {
-            var CryptoJS = window.CryptoJS;
+        } else {
+            if (window.CryptoJS !== 'undefined') {
+                var CryptoJS = window.CryptoJS;
+            } else {
+                throw 'Install CryptoJS';
+            }
+
         }
 
         this.scheme = null; // we just echo the scheme, to allow for 'Digest', 'X-Digest', 'JDigest' etc
@@ -28,7 +33,7 @@
 
         // settings
         this.timeout = 10000; // timeout
-        this.loggingOn = true; // toggle console logging
+        this.loggingOn = false; // toggle console logging
 
         // determine if a post, so that request will send data
         this.post = false;

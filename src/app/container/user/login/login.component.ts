@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
                 .pipe(
                     tap((logged) => {
                         if (logged) {
-                            console.log(logged);
                             this.error = false;
                             this.router.navigate(['/']);
                         } else {

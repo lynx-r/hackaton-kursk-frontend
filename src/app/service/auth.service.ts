@@ -41,7 +41,6 @@ export class AuthService {
         const getRequest = new digestAuthRequest('GET', ApiConstant.AUTH_LOGIN, user.phone, user.password);
         return new Observable<any>(subscriber => {
             getRequest.request(data => {
-                    console.log('data', data);
                     this.token = data.token;
                 subscriber.next(true);
                     subscriber.complete();

@@ -20,7 +20,6 @@ export class StorageService {
 
     saveToken(token: string) {
         this.cookieService.put(AppConstant.AUTH_TOKEN, token);
-        console.log(token, 'saved', this.cookieService.get(AppConstant.AUTH_TOKEN));
     }
 
 }

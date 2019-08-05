@@ -66,10 +66,6 @@ export class ApiService {
                 this.notifyService.error('Доступ запрещен!');
                 break;
             }
-            case 403: {
-                this.notifyService.error('Не достаточно прав!');
-                break;
-            }
         }
     }
 }

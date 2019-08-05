@@ -208,7 +208,7 @@ export class DashboardComponent implements OnInit {
     constructor(
         private router: Router,
         private authService: AuthService,
-        private apiService: ApiService
+        private apiService: ApiService,
     ) {
     }
 

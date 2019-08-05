@@ -17,14 +17,12 @@ import {
     MatToolbarModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PhoneValidatorsModule } from 'ngx-phone-validators';
 
 @NgModule({
     declarations: [],
     imports: [],
     exports: [
         FlexLayoutModule,
-        PhoneValidatorsModule,
         ReactiveFormsModule,
         FormsModule,
         MatButtonModule,
