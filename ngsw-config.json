@@ -9,7 +9,7 @@
     {
       "name": "api-freshness",
       "urls": [
-        "https://api.shashki.online/api/**"
+        "https://api.shashki.online/api/protected/**"
       ],
       "cacheConfig": {
         "strategy": "freshness",

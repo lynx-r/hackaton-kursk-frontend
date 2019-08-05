@@ -6,9 +6,9 @@ export class ApiConstant {
 
     static AUTH_LOGIN = ApiConstant.WEB_PREFIX + '/auth/token';
     static AUTH_AUTHORIZED = ApiConstant.WEB_PREFIX + '/auth/authenticated';
-
-    static METRICS = ApiConstant.WEB_PREFIX + '/metrics';
     static LOGOUT = ApiConstant.WEB_PREFIX + '/logout';
+
+    static METRICS = ApiConstant.WEB_PREFIX + '/protected/metrics';
 
     static WEBRTC_URL = environment.webrtcUrl;
 }
