@@ -3,6 +3,7 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 import { Observable, of } from 'rxjs';
 import { AuthService } from './auth.service';
 import { switchMap } from 'rxjs/operators';
+import { NotifyService } from './notify.service';
 
 @Injectable({
     providedIn: 'root'
@@ -11,7 +12,8 @@ export class AuthGuard implements CanActivate {
 
     constructor(
         private router: Router,
-        private authService: AuthService
+        private authService: AuthService,
+        private notifyService: NotifyService
     ) {
 
     }
@@ -23,6 +25,7 @@ export class AuthGuard implements CanActivate {
                     if (loggedIn) {
                         return of(true);
                     } else {
+                        this.notifyService.error('Пожалуйста, авторизуйтесь');
                         return this.router.navigate(['/user/login']);
                     }
                 })
