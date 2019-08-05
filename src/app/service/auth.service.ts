@@ -27,6 +27,7 @@ export class AuthService {
             .pipe(
                 map(res => res.isLoggedIn),
                 catchError(err => {
+                    this.token = null;
                     return of(false);
                 })
             );
