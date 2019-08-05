@@ -20,6 +20,9 @@ export class AuthService {
     }
 
     get isLoggedIn() {
+        if (!AuthService.isOnline()) {
+            return of(true);
+        }
         return this.apiService.isAuthorized()
             .pipe(
                 map(res => res.isLoggedIn),
@@ -27,6 +30,10 @@ export class AuthService {
                     return of(false);
                 })
             );
+    }
+
+    static isOnline() {
+        return navigator.onLine;
     }
 
     get token() {
