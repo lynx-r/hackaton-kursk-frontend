@@ -6,35 +6,19 @@
   overflow-y: hidden;
 }
 
-@media screen and (min-width: 1280px) {
-  .local-video-wrap, .remote-video-wrapper {
-    width: 320px;
-    height: 240px;
-  }
+.remote-video-wrapper {
+  width: 100vw;
+  height: 70vh;
 }
 
-@media screen and (max-width: 1279px) {
-  .local-video-wrap, .remote-video-wrapper {
-    width: 160px;
-    height: 120px;
-  }
-}
-
-.local-video-wrap, .remote-video-wrapper {
-  position: relative;
-}
-
-.local-video, .remote-video {
-  position: absolute;
-  top: 0;
-  left: 0;
+.remote-video {
   width: 100%;
-  max-width: 100%;
-  height: 100%;
-  max-height: 100%;
 }
 
 .local-video {
+  width: 120px;
+  position: absolute;
+  right: 0;
   border: 4px solid #{mat-color($candy-app-accent)};
   border-radius: 4px;
 }

@@ -4,13 +4,7 @@
                 mat-flat-button>
             Кликните для разрешения доступа к камере
         </button>
-        <div [hidden]="!haveLocalPermissions">
-            <div fxLayout="row" fxLayoutAlign="end">
-                <div class="local-video-wrap">
-                    <video #localVideo autoplay class="local-video" fxFlex muted></video>
-                </div>
-            </div>
-        </div>
+        <video #localVideo [hidden]="!haveLocalPermissions" autoplay class="local-video" muted></video>
         <div class="remote-video-wrapper">
             <video #remoteVideo autoplay class="remote-video"></video>
         </div>
