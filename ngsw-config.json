@@ -22,7 +22,7 @@
       "name": "webrtc-socket",
       "urls": [
         "https://socket.shashki.online/**",
-        "/api/auth/authenticated"
+        "https://api.shashki.online/api/auth/**"
       ],
       "cacheConfig": {
         "maxSize": 0,
