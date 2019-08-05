@@ -1,6 +1,31 @@
 {
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "index": "/index.html",
+  "dataGroups": [
+    {
+      "name": "api-freshness",
+      "urls": [
+        "https://api.shashki.online/api/**"
+      ],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 100,
+        "maxAge": "1d",
+        "timeout": "10s"
+      }
+    },
+    {
+      "name": "webrtc-socket",
+      "urls": [
+        "https://socket.shashki.online/**"
+      ],
+      "cacheConfig": {
+        "maxSize": 0,
+        "maxAge": "0u",
+        "strategy": "freshness"
+      }
+    }
+  ],
   "assetGroups": [
     {
       "name": "app",
@@ -11,6 +36,10 @@
           "/index.html",
           "/*.css",
           "/*.js"
+        ],
+        "urls": [
+          "https://fonts.googleapis.com/icon?family=Material+Icons",
+          "https://fonts.googleapis.com/css?family=Roboto:300,400,500"
         ]
       }
     },
