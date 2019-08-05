@@ -1,25 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { SwPush, SwUpdate } from '@angular/service-worker';
+import { Component } from '@angular/core';
+import { AppUpdateService } from './service/app-update.service';
+import { CheckForUpdateService } from './service/check-for-update.service';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
     constructor(
-        private swUpdate: SwUpdate,
-        private swPush: SwPush,
+        private checkForUpdate: CheckForUpdateService,
+        private promptUpdate: AppUpdateService
     ) {
-    }
-
-    ngOnInit(): void {
-        if (this.swUpdate.isEnabled) {
-            this.swUpdate.available.subscribe(() => {
-                window.location.reload();
-            });
-        }
+        checkForUpdate.monitorUpdates();
+        promptUpdate.subscribeForUpdate();
     }
 
 }

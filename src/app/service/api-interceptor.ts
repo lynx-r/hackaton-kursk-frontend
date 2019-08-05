@@ -10,11 +10,9 @@ export class ApiInterceptor implements HttpInterceptor {
     }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        console.log('req');
         let clonedRequest = req.clone();
         const token = this.authService.token;
         if (!!token) {
-            console.log(1);
             clonedRequest = clonedRequest.clone(
                 {
                     headers:

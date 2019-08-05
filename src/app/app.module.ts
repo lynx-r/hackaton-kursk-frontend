@@ -10,6 +10,8 @@ import { NgxLocalStorageModule } from 'ngx-localstorage';
 import { CookieModule } from 'ngx-cookie';
 import { ApiInterceptor } from './service/api-interceptor';
 import { ToastrModule } from 'ngx-toastr';
+import { AppUpdateService } from './service/app-update.service';
+import { CheckForUpdateService } from './service/check-for-update.service';
 
 @NgModule({
     declarations: [
@@ -31,7 +33,9 @@ import { ToastrModule } from 'ngx-toastr';
             provide: HTTP_INTERCEPTORS,
             useClass: ApiInterceptor,
             multi: true
-        }
+        },
+        AppUpdateService,
+        CheckForUpdateService
     ],
     bootstrap: [AppComponent]
 })
