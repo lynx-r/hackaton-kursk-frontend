@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { User } from '../model/user.model';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { ApiService } from './api.service';
 import { StorageService } from './storage.service';
 import { ApiConstant } from '../config/api-constant';
-import { tap } from 'rxjs/operators';
+import { catchError, map, tap } from 'rxjs/operators';
 
 declare var digestAuthRequest: any;
 
@@ -20,7 +20,13 @@ export class AuthService {
     }
 
     get isLoggedIn() {
-        return !!this.storageService.getToken();
+        return this.apiService.isAuthorized()
+            .pipe(
+                map(res => res.isLoggedIn),
+                catchError(err => {
+                    return of(false);
+                })
+            );
     }
 
     get token() {
