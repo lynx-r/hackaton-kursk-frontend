@@ -19,7 +19,7 @@
       }
     },
     {
-      "name": "webrtc-socket",
+      "name": "api-nocache",
       "urls": [
         "https://socket.shashki.online/**",
         "https://api.shashki.online/api/auth/**"
