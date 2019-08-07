@@ -7,13 +7,14 @@ import { NgForm } from '@angular/forms';
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
-    styleUrls: ['./login.component.css']
+    styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
     @ViewChild('loginForm', {static: false}) loginForm: NgForm;
 
     error: boolean;
+    russianSymbols: boolean;
 
     constructor(
         private authService: AuthService,
@@ -40,5 +41,11 @@ export class LoginComponent implements OnInit {
                 )
                 .subscribe();
         }
+    }
+
+    onKeyup(password: string) {
+        const re = /([а-я]|[А-Я])+/g;
+        const a = password.match(re);
+        this.russianSymbols = a !== null;
     }
 }

@@ -44,6 +44,7 @@
     <mat-form-field appearance="outline">
         <mat-label>Пароль</mat-label>
         <input #password="ngModel"
+               (keyup)="onKeyup(password.value)"
                (keydown.enter)="onLogin($event)"
                autocomplete="current-password"
                matInput
@@ -62,6 +63,9 @@
             <div *ngIf="password.errors.maxlength">Максимальная длина пароля 28 символов!</div>
         </mat-error>
     </mat-form-field>
+    <mat-hint *ngIf="russianSymbols">
+        Вы вводите пароль в <span class="warn">русской раскладке клавиатуры</span>.
+    </mat-hint>
     <mat-hint>
         Если Вы не знаете пароля, введите любой 6 значный и нажмите Enter. В ошибках появятся допустимые уч. данные.
     </mat-hint>
