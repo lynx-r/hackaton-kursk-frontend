@@ -36,3 +36,7 @@ https://hackaton-kursk.shashki.online/user/login
 * https://github.com/lynx-r/hackaton-kursk-backend Api на Spring Boot и Groovy
 * https://github.com/lynx-r/hackaton-kursk-nodejs Socket.io свервер для WebRTC
 * https://github.com/lynx-r/hackaton-kursk-server-config Некоторый важные настройки сервера (без Docker)
+
+# Digest-authentication
+
+Особенностью этого приложение является то, что для аутентификации на сервере используется [Digest-authentication](https://ru.wikipedia.org/wiki/Дайджест-аутентификация)
