@@ -4,6 +4,7 @@ import { ApiConstant } from '../config/api-constant';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { NotifyService } from './notify.service';
+import { JwtToken } from '../model/jwt-token';
 
 @Injectable({
     providedIn: 'root'
@@ -16,9 +17,14 @@ export class ApiService {
     ) {
     }
 
+    authObserve() {
+        const headers = {Authorization: 'Digest try'};
+        return this.http.get(ApiConstant.AUTH_LOGIN, {headers: headers, observe: 'response'});
+    }
 
-    getMetrics() {
-        return this.httpGet(ApiConstant.METRICS);
+    getToken(digest: string): Observable<JwtToken> {
+        const headers = {'Authorization': digest};
+        return this.http.post<JwtToken>(ApiConstant.AUTH_LOGIN, {}, {headers: headers});
     }
 
     logout() {
@@ -27,6 +33,10 @@ export class ApiService {
 
     isAuthorized(): Observable<{ isLoggedIn: boolean }> {
         return this.httpGet(ApiConstant.AUTH_AUTHORIZED);
+    }
+
+    getMetrics() {
+        return this.httpGet(ApiConstant.METRICS);
     }
 
     // private http
