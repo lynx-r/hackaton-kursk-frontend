@@ -1,17 +1,17 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { AuthService } from '../../../service/auth.service';
-import { tap } from 'rxjs/operators';
-import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core'
+import { NgForm } from '@angular/forms'
+import { Router } from '@angular/router'
+import { tap } from 'rxjs/operators'
+import { AuthService } from '../../../service/auth.service'
 
 @Component({
-    selector: 'app-login',
-    templateUrl: './login.component.html',
-    styleUrls: ['./login.component.scss']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
-    @ViewChild('loginForm', {static: false}) loginForm: NgForm;
+  @ViewChild('loginForm', {static: false}) loginForm: NgForm
 
     error: boolean;
     russianSymbols: boolean;
@@ -23,6 +23,12 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit() {
+      setTimeout(() => {
+        this.loginForm.setValue({
+          phone: '9999999999',
+          password: 'password'
+        })
+      }, 100)
     }
 
     onLogin(event) {
